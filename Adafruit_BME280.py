@@ -129,6 +129,7 @@ class BME280(object):
         # Create device, catch permission errors
         try:
             self._device = i2c.get_i2c_device(address, **kwargs)
+            self._device.readRaw8()
         except IOError:
             print("Unable to communicate with sensor, check permissions.")
             exit()
